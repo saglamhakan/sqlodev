@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE categories (
   category_id INT PRIMARY KEY,
-  title VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255) UNIQUE NOT NULL,
   creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_published BOOLEAN
 );
@@ -40,7 +40,7 @@ CREATE TABLE comments (
   comment_id INT PRIMARY KEY,
   post_id INT,
   user_id INT,
-  content TEXT NOT NULL,
+  comment TEXT NOT NULL,
   creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_published BOOLEAN,
   FOREIGN KEY (post_id) REFERENCES posts(post_id),
@@ -137,106 +137,106 @@ insert into posts (post_id, user_id, category_id, title, content, view_count, cr
 
 --Add Comments
 
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (1, 1, 1, '᠎', '2010-09-27', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (2, 2, 2, '`⁄€‹›ﬁﬂ‡°·‚—±', '2016-03-27', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (3, 3, 3, 'Ω≈ç√∫˜µ≤≥÷', '2018-06-11', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (4, 4, 4, 'NIL', '2012-04-28', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (5, 5, 5, '-1E+02', '2018-08-12', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (6, 6, 6, '👩🏽', '2021-09-16', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (7, 7, 7, '👾 🙇 💁 🙅 🙆 🙋 🙎 🙍 ', '2017-09-15', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (8, 8, 8, ',./;''[]\-=', '2022-07-09', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (9, 9, 9, '🚾 🆒 🆓 🆕 🆖 🆗 🆙 🏧', '2015-12-07', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (10, 10, 10, '❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙', '2023-04-29', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (11, 11, 11, '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻', '2012-04-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (12, 12, 12, '⁰⁴⁵', '2016-03-02', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (13, 13, 13, '울란바토르', '2012-02-23', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (14, 14, 14, '​', '2023-05-06', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (15, 15, 15, 'test⁠test‫', '2013-02-03', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (16, 16, 16, '1''; DROP TABLE users--', '2013-11-19', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (17, 17, 17, '👩🏽', '2017-09-26', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (18, 18, 18, '"', '2017-12-23', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (19, 19, 19, '¡™£¢∞§¶•ªº–≠', '2022-07-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (20, 20, 20, '999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999', '2018-09-06', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (21, 21, 1, '1', '2011-04-18', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (22, 22, 2, 'Hakan', '2012-08-20', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (23, 23, 3, '0/0', '2018-08-22', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (24, 24, 4, '() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }', '2020-09-18', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (25, 25, 5, '1', '2016-03-12', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (26, 26, 6, '-1E2', '2021-10-29', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (27, 27, 6, ',./;''[]\-=', '2014-09-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (28, 28, 7, '🐵 🙈 🙉 🙊', '2016-04-26', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (29, 29, 8, '0.00', '2023-05-16', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (30, 30, 9, '1;DROP TABLE users', '2014-05-29', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (31, 31, 1, '0/0', '2014-12-09', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (32, 32, 2, '　', '2018-02-22', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (33, 33, 3, '""', '2022-03-16', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (34, 34, 3, '¸˛Ç◊ı˜Â¯˘¿', '2021-02-07', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (35, 35, 3, 'nlödldl', '2013-11-19', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (36, 36, 4, '$1.00', '2021-07-22', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (37, 37, 5, '̦H̬̤̗̤͝e͜ ̜̥̝̻͍̟́w̕h̖̯͓o̝͙̖͎̱̮ ҉̺̙̞̟͈W̷̼̭a̺̪͍į͈͕̭͙̯̜t̶̼̮s̘͙͖̕ ̠̫̠B̻͍͙͉̳ͅe̵h̵̬͇̫͙i̹͓̳̳̮͎̫̕n͟d̴̪̜̖ ̰͉̩͇͙̲͞ͅT͖̼͓̪͢h͏͓̮̻e̬̝̟ͅ ̤̹̝W͙̞̝͔͇͝ͅa͏͓͔̹̼̣l̴͔̰̤̟͔ḽ̫.͕', '2015-01-07', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (38, 38, 6, '1', '2011-11-04', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (39, 39, 6, '""', '2013-09-18', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (40, 40, 6, '¸˛Ç◊ı˜Â¯˘¿', '2016-12-20', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (41, 41, 5, '␡', '2011-04-02', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (42, 42, 5, '␣', '2023-04-07', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (43, 43, 4, '0.00', '2022-07-24', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (44, 44, 1, '1E02', '2016-05-16', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (45, 45, 2, 'Œ„´‰ˇÁ¨ˆØ∏”’', '2016-06-02', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (46, 46, 3, '00˙Ɩ$-', '2012-03-01', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (47, 47, 4, 'Mehmet', '2019-05-30', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (48, 48, 5, '🐵 🙈 🙉 🙊', '2016-02-26', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (49, 49, 6, '<img src=x onerror=alert(''hi'') />', '2021-10-27', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (50, 50, 5, '-1.00', '2020-03-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (51, 1, 3, 'ÅÍÎÏ˝ÓÔÒÚÆ☃', '2021-10-18', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (52, 2, 2, '-1E2', '2011-10-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (53, 3, 3, 'ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.', '2021-12-15', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (54, 3, 4, '1E02', '2011-06-01', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (55, 4, 4, '(╯°□°）╯︵ ┻━┻)  ', '2011-07-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (56, 4, 4, 'ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ ', '2010-09-14', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (57, 5, 5, 'Ω≈ç√∫˜µ≤≥÷', '2017-08-06', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (58, 6, 5, '˙ɐnbᴉlɐ ɐuƃɐɯ ǝɹolop ʇǝ ǝɹoqɐl ʇn ʇunpᴉpᴉɔuᴉ ɹodɯǝʇ poɯsnᴉǝ op pǝs ''ʇᴉlǝ ƃuᴉɔsᴉdᴉpɐ ɹnʇǝʇɔǝsuoɔ ''ʇǝɯɐ ʇᴉs ɹolop ɯnsdᴉ ɯǝɹo˥', '2011-07-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (59, 7, 2, '0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟', '2018-06-03', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (60, 8, 1, 'Œ„´‰ˇÁ¨ˆØ∏”’', '2012-05-14', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (61, 1, 2, '‪‪test‪', '2012-10-19', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (62, 2, 2, 'パーティーへ行かないか', '2017-10-13', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (63, 3, 2, '｀ｨ(´∀｀∩', '2016-10-04', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (64, 4, 3, '₀₁₂', '2011-01-26', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (65, 4, 4, '-1E+02', '2013-08-08', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (66, 4, 11, '社會科學院語學研究所', '2018-04-28', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (67, 3, 12, '() { 0; }; touch /tmp/blns.shellshock1.fail;', '2019-09-29', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (68, 23, 12, '''''', '2014-03-29', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (69, 43, 12, '1E2', '2022-09-09', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (70, 12, 13, '‫test‫', '2014-02-11', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (71, 14, 11, 'Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮', '2018-09-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (72, 23, 12, '(╯°□°）╯︵ ┻━┻)  ', '2019-05-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (73, 34, 13, 'בְּרֵאשִׁית, בָּרָא אֱלֹהִים, אֵת הַשָּׁמַיִם, וְאֵת הָאָרֶץ', '2015-01-04', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (74, 43, 16, '(｡◕ ∀ ◕｡)', '2016-09-08', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (75, 23, 7, '‫test‫', '2017-05-19', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (76, 23, 7, '../../../../../../../../../../../etc/passwd%00', '2016-11-11', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (77, 13, 8, '❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙', '2011-01-25', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (78, 12, 6, '!@#$%^&*()', '2011-04-07', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (79, 11, 6, '₀₁₂', '2017-02-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (80, 12, 5, '''', '2011-04-19', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (81, 23, 5, 'ÅÍÎÏ˝ÓÔÒÚÆ☃', '2012-02-11', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (82, 34, 5, '‫test‫', '2018-03-17', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (83, 23, 4, '"''"''"''''''''"', '2019-05-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (84, 23, 4, '-1E+02', '2013-11-12', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (85, 22, 4, '1E+02', '2020-09-12', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (86, 23, 5, '⁦test⁧', '2018-01-30', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (87, 34, 6, '👩🏽', '2010-08-13', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (88, 34, 3, ' ', '2014-08-21', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (89, 22, 4, '1E+02', '2013-05-13', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (90, 23, 4, '​', '2015-02-18', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (91, 22, 4, '・(￣∀￣)・:*:', '2021-09-06', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (92, 22, 4, '1E2', '2018-08-07', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (93, 34, 5, '-1E02', '2014-06-02', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (94, 43, 6, '-1/2', '2013-08-22', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (95, 32, 6, 'ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.', '2021-04-10', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (96, 23, 5, '👾 🙇 💁 🙅 🙆 🙋 🙎 🙍 ', '2012-10-14', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (97, 43, 5, '"''''''''"''"', '2014-05-20', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (98, 34, 5, '部落格', '2021-06-07', true);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (99, 43, 5, '⁰⁴⁵', '2012-05-24', false);
-insert into comments (comment_id, post_id, user_id, content, creation_date, is_published) values (100, 21, 4, '١٢٣', '2023-01-28', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (1, 1, 1, '᠎', '2010-09-27', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (2, 2, 2, '`⁄€‹›ﬁﬂ‡°·‚—±', '2016-03-27', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (3, 3, 3, 'Ω≈ç√∫˜µ≤≥÷', '2018-06-11', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (4, 4, 4, 'NIL', '2012-04-28', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (5, 5, 5, '-1E+02', '2018-08-12', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (6, 6, 6, '👩🏽', '2021-09-16', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (7, 7, 7, '👾 🙇 💁 🙅 🙆 🙋 🙎 🙍 ', '2017-09-15', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (8, 8, 8, ',./;''[]\-=', '2022-07-09', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (9, 9, 9, '🚾 🆒 🆓 🆕 🆖 🆗 🆙 🏧', '2015-12-07', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (10, 10, 10, '❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙', '2023-04-29', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (11, 11, 11, '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻', '2012-04-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (12, 12, 12, '⁰⁴⁵', '2016-03-02', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (13, 13, 13, '울란바토르', '2012-02-23', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (14, 14, 14, '​', '2023-05-06', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (15, 15, 15, 'test⁠test‫', '2013-02-03', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (16, 16, 16, '1''; DROP TABLE users--', '2013-11-19', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (17, 17, 17, '👩🏽', '2017-09-26', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (18, 18, 18, '"', '2017-12-23', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (19, 19, 19, '¡™£¢∞§¶•ªº–≠', '2022-07-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (20, 20, 20, '999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999', '2018-09-06', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (21, 21, 1, '1', '2011-04-18', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (22, 22, 2, 'Hakan', '2012-08-20', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (23, 23, 3, '0/0', '2018-08-22', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (24, 24, 4, '() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }', '2020-09-18', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (25, 25, 5, '1', '2016-03-12', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (26, 26, 6, '-1E2', '2021-10-29', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (27, 27, 6, ',./;''[]\-=', '2014-09-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (28, 28, 7, '🐵 🙈 🙉 🙊', '2016-04-26', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (29, 29, 8, '0.00', '2023-05-16', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (30, 30, 9, '1;DROP TABLE users', '2014-05-29', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (31, 31, 1, '0/0', '2014-12-09', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (32, 32, 2, '　', '2018-02-22', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (33, 33, 3, '""', '2022-03-16', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (34, 34, 3, '¸˛Ç◊ı˜Â¯˘¿', '2021-02-07', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (35, 35, 3, 'nlödldl', '2013-11-19', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (36, 36, 4, '$1.00', '2021-07-22', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (37, 37, 5, '̦H̬̤̗̤͝e͜ ̜̥̝̻͍̟́w̕h̖̯͓o̝͙̖͎̱̮ ҉̺̙̞̟͈W̷̼̭a̺̪͍į͈͕̭͙̯̜t̶̼̮s̘͙͖̕ ̠̫̠B̻͍͙͉̳ͅe̵h̵̬͇̫͙i̹͓̳̳̮͎̫̕n͟d̴̪̜̖ ̰͉̩͇͙̲͞ͅT͖̼͓̪͢h͏͓̮̻e̬̝̟ͅ ̤̹̝W͙̞̝͔͇͝ͅa͏͓͔̹̼̣l̴͔̰̤̟͔ḽ̫.͕', '2015-01-07', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (38, 38, 6, '1', '2011-11-04', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (39, 39, 6, '""', '2013-09-18', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (40, 40, 6, '¸˛Ç◊ı˜Â¯˘¿', '2016-12-20', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (41, 41, 5, '␡', '2011-04-02', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (42, 42, 5, '␣', '2023-04-07', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (43, 43, 4, '0.00', '2022-07-24', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (44, 44, 1, '1E02', '2016-05-16', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (45, 45, 2, 'Œ„´‰ˇÁ¨ˆØ∏”’', '2016-06-02', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (46, 46, 3, '00˙Ɩ$-', '2012-03-01', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (47, 47, 4, 'Mehmet', '2019-05-30', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (48, 48, 5, '🐵 🙈 🙉 🙊', '2016-02-26', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (49, 49, 6, '<img src=x onerror=alert(''hi'') />', '2021-10-27', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (50, 50, 5, '-1.00', '2020-03-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (51, 1, 3, 'ÅÍÎÏ˝ÓÔÒÚÆ☃', '2021-10-18', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (52, 2, 2, '-1E2', '2011-10-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (53, 3, 3, 'ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.', '2021-12-15', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (54, 3, 4, '1E02', '2011-06-01', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (55, 4, 4, '(╯°□°）╯︵ ┻━┻)  ', '2011-07-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (56, 4, 4, 'ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ ', '2010-09-14', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (57, 5, 5, 'Ω≈ç√∫˜µ≤≥÷', '2017-08-06', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (58, 6, 5, '˙ɐnbᴉlɐ ɐuƃɐɯ ǝɹolop ʇǝ ǝɹoqɐl ʇn ʇunpᴉpᴉɔuᴉ ɹodɯǝʇ poɯsnᴉǝ op pǝs ''ʇᴉlǝ ƃuᴉɔsᴉdᴉpɐ ɹnʇǝʇɔǝsuoɔ ''ʇǝɯɐ ʇᴉs ɹolop ɯnsdᴉ ɯǝɹo˥', '2011-07-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (59, 7, 2, '0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟', '2018-06-03', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (60, 8, 1, 'Œ„´‰ˇÁ¨ˆØ∏”’', '2012-05-14', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (61, 1, 2, '‪‪test‪', '2012-10-19', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (62, 2, 2, 'パーティーへ行かないか', '2017-10-13', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (63, 3, 2, '｀ｨ(´∀｀∩', '2016-10-04', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (64, 4, 3, '₀₁₂', '2011-01-26', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (65, 4, 4, '-1E+02', '2013-08-08', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (66, 4, 11, '社會科學院語學研究所', '2018-04-28', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (67, 3, 12, '() { 0; }; touch /tmp/blns.shellshock1.fail;', '2019-09-29', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (68, 23, 12, '''''', '2014-03-29', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (69, 43, 12, '1E2', '2022-09-09', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (70, 12, 13, '‫test‫', '2014-02-11', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (71, 14, 11, 'Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮', '2018-09-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (72, 23, 12, '(╯°□°）╯︵ ┻━┻)  ', '2019-05-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (73, 34, 13, 'בְּרֵאשִׁית, בָּרָא אֱלֹהִים, אֵת הַשָּׁמַיִם, וְאֵת הָאָרֶץ', '2015-01-04', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (74, 43, 16, '(｡◕ ∀ ◕｡)', '2016-09-08', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (75, 23, 7, '‫test‫', '2017-05-19', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (76, 23, 7, '../../../../../../../../../../../etc/passwd%00', '2016-11-11', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (77, 13, 8, '❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙', '2011-01-25', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (78, 12, 6, '!@#$%^&*()', '2011-04-07', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (79, 11, 6, '₀₁₂', '2017-02-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (80, 12, 5, '''', '2011-04-19', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (81, 23, 5, 'ÅÍÎÏ˝ÓÔÒÚÆ☃', '2012-02-11', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (82, 34, 5, '‫test‫', '2018-03-17', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (83, 23, 4, '"''"''"''''''''"', '2019-05-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (84, 23, 4, '-1E+02', '2013-11-12', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (85, 22, 4, '1E+02', '2020-09-12', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (86, 23, 5, '⁦test⁧', '2018-01-30', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (87, 34, 6, '👩🏽', '2010-08-13', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (88, 34, 3, ' ', '2014-08-21', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (89, 22, 4, '1E+02', '2013-05-13', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (90, 23, 4, '​', '2015-02-18', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (91, 22, 4, '・(￣∀￣)・:*:', '2021-09-06', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (92, 22, 4, '1E2', '2018-08-07', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (93, 34, 5, '-1E02', '2014-06-02', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (94, 43, 6, '-1/2', '2013-08-22', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (95, 32, 6, 'ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.', '2021-04-10', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (96, 23, 5, '👾 🙇 💁 🙅 🙆 🙋 🙎 🙍 ', '2012-10-14', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (97, 43, 5, '"''''''''"''"', '2014-05-20', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (98, 34, 5, '部落格', '2021-06-07', true);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (99, 43, 5, '⁰⁴⁵', '2012-05-24', false);
+insert into comments (comment_id, post_id, user_id, comment, creation_date, is_published) values (100, 21, 4, '١٢٣', '2023-01-28', false);
 
 
 
@@ -311,7 +311,7 @@ LIMIT 1;
 
 SELECT c.title AS category, SUM(p.view_count) AS total_views
 FROM categories c
-LEFT JOIN posts p ON c.category_id = p.category_id
+Inner JOIN posts p ON c.category_id = p.category_id
 GROUP BY c.category_id, c.title
 ORDER BY total_views DESC
 LIMIT 1;
@@ -340,7 +340,7 @@ WHERE title LIKE '%word%' OR content LIKE '%word%';
 
 14- Belirli bir kullanıcının en son yorumunu gösterin.
 
-SELECT c.comment_text, c.creation_date
+SELECT c.comment, c.creation_date
 FROM comments c
 WHERE c.user_id = belirli_user_id
 ORDER BY c.creation_date DESC
