@@ -17,7 +17,7 @@ CREATE TABLE categories (
   name VARCHAR(255) UNIQUE NOT NULL,
   creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_published BOOLEAN
-);
+); 
 
 3- posts Table 
 
